@@ -48,13 +48,11 @@ class Battlefield:
     def battle(self):
         if self.turn == 'robot':
             attacker = self.show_robo_options()
-            print(attacker.name)
             attacker.attack(self.herd.dinosaurs[0])
             self.turn = "dino"
             print()
         else:     
             attacker= self.show_dino_options()
-            print(attacker)
             attacker.attack(self.fleet.robots[0])
             self.turn = "robot"
             print()
