@@ -42,7 +42,7 @@ class Battlefield:
         if self.winner == "robot":
             print("The dinosaurs have been defeated. Robots win!!!")
         else:
-            print("The dinosaurs have been defeated. Robots win!!!")
+            print("The Robots have been defeated. dinosaurs win!!!")
 
 
     def battle(self):
