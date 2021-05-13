@@ -21,14 +21,14 @@ class Battlefield:
             self.run_game()
 
     def show_dino_options(self):
-        selection = int(input("Select which enemy to attack: (1, 2, or 3)")) - 1
-        selected_target = self.fleet.robots[selection]
-        return selected_target
+        selection = int(input("Select which dinosaur is going to attack: (1, 2, or 3)")) - 1
+        selected_attacker = self.herd.dinosaurs[selection]
+        return selected_attacker
 
     def show_robo_options(self):
-        selection = int(input("Select which enemy to attack: (1, 2, or 3)")) - 1
-        selected_target = self.herd.dinosaurs[selection]
-        return selected_target
+        selection = int(input("Select which Robot is going to attack: (1, 2, or 3)")) - 1
+        selected_attacker = self.fleet.robots[selection]
+        return selected_attacker
 
     def dino_turn(self):
         if self.turn == "dino":
@@ -47,15 +47,15 @@ class Battlefield:
 
     def battle(self):
         if self.turn == 'robot':
-            target = self.show_robo_options()
-            print(target)
-            self.fleet.robots[0].attack(target)
+            attacker = self.show_robo_options()
+            print(attacker.name)
+            attacker.attack(self.herd.dinosaurs[0])
             self.turn = "dino"
             print()
         else:     
-            target = self.show_dino_options()
-            print(target)
-            self.herd.dinosaurs[0].attack(target)
+            attacker= self.show_dino_options()
+            print(attacker)
+            attacker.attack(self.fleet.robots[0])
             self.turn = "robot"
             print()
 

@@ -13,7 +13,7 @@ class Robot:
         total_attack = rand_num + self.weapon.attack_power
         damage = target.health - total_attack
         target.health = damage
-        print(f"{self.name} attack {target.type} for {self.weapon.attack_power}. {target.type} now has {target.health} health")
+        print(f"{self.name} attack {target.type} with{self.weapon} dealing {total_attack}. {target.type} now has {target.health} health")
 
 
 
