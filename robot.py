@@ -1,4 +1,5 @@
 from weapon import Weapon
+import random
 
 class Robot:
     def __init__(self, name, weapon_name):
@@ -8,7 +9,9 @@ class Robot:
         self.weapon = Weapon(weapon_name, 5)
 
     def attack(self, target):
-        damage = target.health - self.weapon.attack_power
+        rand_num = random.randint(-2 , 5)
+        total_attack = rand_num + self.weapon.attack_power
+        damage = target.health - total_attack
         target.health = damage
         print(f"{self.name} attack {target.type} for {self.weapon.attack_power}. {target.type} now has {target.health} health")
 

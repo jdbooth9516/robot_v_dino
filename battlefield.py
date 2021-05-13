@@ -1,4 +1,5 @@
 
+from dino import Dinosaur
 from robot import Robot
 
 
@@ -8,16 +9,16 @@ class Battlefield:
         self.herd = herd
         self.turn = "robot"
         self.run = False
+        self.winner = ''
         herd = self.herd.dinosaurs
         fleet = self.fleet.robots
     
-        print(herd)
 
     def display_welcome(self):
         start = input("Welcome your fleet is ready do you want to start the battle? (y/n): ")
         if start == 'y':
             self.run = True
-            self.battle()
+            self.run_game()
 
     def show_dino_options(self):
         selection = int(input("Select which enemy to attack: (1, 2, or 3)")) - 1
@@ -43,22 +44,49 @@ class Battlefield:
         else:
             print("The dinosaurs have been defeated. Robots win!!!")
 
+
     def battle(self):
+        if self.turn == 'robot':
+            target = self.show_robo_options()
+            print(target)
+            self.fleet.robots[0].attack(target)
+            self.turn = "dino"
+            print()
+        else:     
+            target = self.show_dino_options()
+            print(target)
+            self.herd.dinosaurs[0].attack(target)
+            self.turn = "robot"
+            print()
 
-        while self.run == True:
 
-            if self.turn == 'robot':
-                target = self.show_robo_options()
-                print(target)
-                self.fleet.robots[0].attack(target)
-                self.turn = "dino"
-            else:     
-                target = self.show_dino_options()
-                print(target)
-                self.herd.dinosaurs[0].attack(target)
-                self.turn = "robot"
-                self.run = False
+    def check_for_death(self):
+        if self.herd.dinosaurs[0].health <= 0:
+            print(self.herd.dinosaurs[0].type + " Was defeated")
+            del self.herd.dinosaurs[0]
+
+        elif self.fleet.robots[0].health <= 0: 
+            print(self.fleet.robots[0].name + " Was defeated")
+            del self.fleet.robots[0]   
+
+
+    def check_for_win(self):
+        if len(self.herd.dinosaurs) == 0:
+            self.winner = 'robot'
+            self.run = False
+            
+        elif len(self.fleet.robots) == 0:
+            self.winner = 'dino'
+            self.run = False
 
     def run_game(self):
-        self.display_welcome()
+        while self.run == True:
+            self.battle()
+            self.check_for_death()
+            self.check_for_win()
+            if self.winner != "":
+                self.display_winners()
+
+
+
 
