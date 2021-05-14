@@ -33,6 +33,7 @@ class Battlefield:
         while valid_for_show_robo == False:
             length = len(self.fleet.robots)
             if length == 3:
+                print()
                 selection = int(input("Select which Robot is going to attack: (1, 2, or 3) : ")) - 1
 
                 if selection != 0 and selection != 1 and selection != 2:
@@ -44,6 +45,7 @@ class Battlefield:
                     return selected_attacker
 
             elif length == 2:
+                print()
                 selection = int(input("Select which Robot is going to attack: (1 or 2 ) : ")) - 1
                 print()
 
@@ -56,7 +58,7 @@ class Battlefield:
                     return selected_attacker
 
             elif length == 1:
-                time.sleep(1.5)
+                time.sleep(2)
                 selected_attacker = self.fleet.robots[0]
                 valid_for_show_robo = True
                 return selected_attacker        
@@ -98,7 +100,7 @@ class Battlefield:
             print()
             del self.herd.dinosaurs[0]
 
-        elif self.fleet.robots[0].health <= 0: 
+        elif self.fleet.robots[0].health <= 0 : 
             print(self.fleet.robots[0].name + " Was defeated")
             print()
             del self.fleet.robots[0]   
