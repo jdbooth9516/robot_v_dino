@@ -12,7 +12,7 @@ class Fleet:
     def create_fleet(self):
         self.r.choose_weapon()
         self.r2.choose_weapon()
-        self.r2.choose_weapon()
+        self.r3.choose_weapon()
         self.robots.append(self.r)
         self.robots.append(self.r2)
         self.robots.append(self.r3)
