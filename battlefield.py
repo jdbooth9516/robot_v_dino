@@ -1,5 +1,6 @@
 from dino import Dinosaur
 from robot import Robot
+import time
 
 
 class Battlefield:
@@ -18,6 +19,8 @@ class Battlefield:
         if start == 'y':
             self.run = True
             self.run_game()
+            print("Good luck")
+            print()
 
 
     def show_dino_options(self):
@@ -28,16 +31,36 @@ class Battlefield:
     def show_robo_options(self):
         valid_for_show_robo = False
         while valid_for_show_robo == False:
-            selection = int(input("Select which Robot is going to attack: (1, 2, or 3) : ")) - 1
+            length = len(self.fleet.robots)
+            if length == 3:
+                selection = int(input("Select which Robot is going to attack: (1, 2, or 3) : ")) - 1
 
-            if selection != 0 and selection != 1 and selection != 2:
-                print("Invalid input please try again")
+                if selection != 0 and selection != 1 and selection != 2:
+                    print("Invalid input please try again")
+                    print()
+                else:
+                    selected_attacker = self.fleet.robots[selection]
+                    valid_for_show_robo = True
+                    return selected_attacker
+
+            elif length == 2:
+                selection = int(input("Select which Robot is going to attack: (1 or 2 ) : ")) - 1
                 print()
-            else:
-                selected_attacker = self.fleet.robots[selection]
-                valid_for_show_robo = True
-                return selected_attacker
 
+                if selection != 0 and selection != 1:
+                    print("Invalid input please try again")
+                    print()
+                else:
+                    selected_attacker = self.fleet.robots[selection]
+                    valid_for_show_robo = True
+                    return selected_attacker
+
+            elif length == 1:
+                time.sleep(1.5)
+                selected_attacker = self.fleet.robots[0]
+                valid_for_show_robo = True
+                return selected_attacker        
+                    
 
     def dino_turn(self):
         if self.turn == "dino":

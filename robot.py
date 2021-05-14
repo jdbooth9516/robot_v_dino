@@ -20,6 +20,9 @@ class Robot:
         print(f"{self.name} attacks {target.type} with {self.weapon_name} dealing {total_attack} damage. {target.type} now has {target.health} health. ")
         print()
         print(f"{self.name} lost 10 energy {self.power_level} left")
+        print()
+        print()
+        print()
 
 
     def choose_weapon(self):
@@ -28,17 +31,17 @@ class Robot:
 
         if weapon_name == 1:
             self.weapon_name = "Hand Cannon"
-            self.weapon_att = 6
+            self.weapon_att = 7
             print(f'{self.name} picked the {self.weapon_name}')
          
         elif weapon_name == 2:
             self.weapon_name = "Laser Rifle"
-            self.weapon_att = 7
+            self.weapon_att = 8
             print(f'{self.name} picked the {self.weapon_name}')
            
         elif weapon_name == 3:
             self.weapon_name = "Micro Rockets"
-            self.weapon_att = 8
+            self.weapon_att = 9
             print(f'{self.name} picked the {self.weapon_name}')
             
             
