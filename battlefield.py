@@ -1,20 +1,72 @@
 from dino import Dinosaur
 from robot import Robot
+from fleet import Fleet
+from herd import Herd
 import time
 
 
 class Battlefield:
-    def __init__(self, fleet, herd):
-        self.fleet = fleet
-        self.herd = herd
+    def __init__(self ):
+        self.fleet = Fleet()
+        self.herd = Herd()
         self.turn = "robot"
         self.run = False
         self.winner = ''
-        herd = self.herd.dinosaurs
-        fleet = self.fleet.robots
+     
     
 
     def display_welcome(self):
+        print()
+        print()
+        print("Welcome to Robots Vs Dinosaurs.")
+        print()
+        time.sleep(2)
+
+        print("Here you will be given a fleet of robots.")
+        print()
+        time.sleep(2)
+
+        print("Your robots will pick a random weapon and you will choose which robot attacks that turn.")
+        print()
+        time.sleep(2)
+
+        print("Each attack consumes energy if your robot runs out of energy they won't be able to attack.")
+        print()
+        time.sleep(2)
+
+        print("If you robots run out of health they die.")
+        print()
+        time.sleep(2)
+
+        print("Eliminate all the dinosaurs to win.")
+        print()
+        time.sleep(2)
+
+        print("Standy by initializing robots")
+        print("10%")
+        print()
+        time.sleep(1)
+
+        print("Standy by initializing robots")
+        print("30%")
+        print()
+        time.sleep(1)
+
+        print("Standy by initializing robots")
+        print("60%")
+        print()
+        time.sleep(1)
+
+        print("Standy by initializing robots")
+        print("100%")
+
+        print("Initialization Complete")
+        print()
+        time.sleep(1)
+
+        self.fleet.create_fleet()
+        self.herd.create_herd()
+        print()
         start = input("Your fleet is ready to deploy? (y/n): ")
         test_start = start.lower()
         if test_start == 'y':
