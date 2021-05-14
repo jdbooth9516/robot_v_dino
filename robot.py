@@ -42,16 +42,19 @@ class Robot:
             self.weapon_name = "Hand Cannon"
             self.weapon_att = 8
             print(f'{self.name} picked the {self.weapon_name}')
+            print()
          
         elif weapon_name == 2:
             self.weapon_name = "Laser Rifle"
             self.weapon_att = 9
             print(f'{self.name} picked the {self.weapon_name}')
+            print()
            
         elif weapon_name == 3:
             self.weapon_name = "Micro Rockets"
             self.weapon_att = 10
             print(f'{self.name} picked the {self.weapon_name}')
+            print()
             
             
 
