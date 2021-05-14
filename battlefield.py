@@ -15,12 +15,16 @@ class Battlefield:
     
 
     def display_welcome(self):
-        start = input("Welcome your fleet is ready do you want to start the battle? (y/n): ")
-        if start == 'y':
+        start = input("Your fleet is ready to deploy? (y/n): ")
+        test_start = start.lower()
+        if test_start == 'y':
             self.run = True
             self.run_game()
             print("Good luck")
             print()
+        else:
+            print()
+            print("Goodbye")
 
 
     def show_dino_options(self):
