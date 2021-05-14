@@ -1,4 +1,3 @@
-
 from dino import Dinosaur
 from robot import Robot
 
@@ -21,14 +20,28 @@ class Battlefield:
             self.run_game()
 
     def show_dino_options(self):
-        selection = int(input("Select which dinosaur is going to attack: (1, 2, or 3)")) - 1
-        selected_attacker = self.herd.dinosaurs[selection]
-        return selected_attacker
+        # valid_for_show_dino = False
+        # while valid_for_show_dino == False:
+        #     selection = int(input("Select which dinosaur is going to attack: (1, 2,     or 3) : ")) - 1
+        #     if selection != 0 and selection != 1 and selection != 2:
+        #         print("Invalid input please try again")
+        #     else:
+        #         selected_attacker = self.herd.dinosaurs[selection]
+        #         valid_for_show_dino = True
+        #         return selected_attacker
+        print("waiting for dino to attack")
 
     def show_robo_options(self):
-        selection = int(input("Select which Robot is going to attack: (1, 2, or 3)")) - 1
-        selected_attacker = self.fleet.robots[selection]
-        return selected_attacker
+        valid_for_show_robo = False
+        while valid_for_show_robo == False:
+            selection = int(input("Select which Robot is going to attack: (1, 2, or 3) : ")) - 1
+            print(selection)
+            if selection != 0 and selection != 1 and selection != 2:
+                print("Invalid input please try again")
+            else:
+                selected_attacker = self.fleet.robots[selection]
+                valid_for_show_robo = True
+                return selected_attacker
 
     def dino_turn(self):
         if self.turn == "dino":
@@ -52,8 +65,8 @@ class Battlefield:
             self.turn = "dino"
             print()
         else:     
-            attacker= self.show_dino_options()
-            attacker.attack(self.fleet.robots[0])
+            self.show_dino_options()
+            self.herd.dinosaurs[0].attack(self.fleet.robots[0])
             self.turn = "robot"
             print()
 

@@ -1,6 +1,7 @@
 from battlefield import Battlefield
 from fleet import Fleet
 from herd import Herd
+from robot import Robot
 
 
 class Main:
