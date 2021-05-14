@@ -19,37 +19,35 @@ class Battlefield:
             self.run = True
             self.run_game()
 
+
     def show_dino_options(self):
-        # valid_for_show_dino = False
-        # while valid_for_show_dino == False:
-        #     selection = int(input("Select which dinosaur is going to attack: (1, 2,     or 3) : ")) - 1
-        #     if selection != 0 and selection != 1 and selection != 2:
-        #         print("Invalid input please try again")
-        #     else:
-        #         selected_attacker = self.herd.dinosaurs[selection]
-        #         valid_for_show_dino = True
-        #         return selected_attacker
-        print("waiting for dino to attack")
+        print("Waiting for Dinosaur to attack")
+        print()
+
 
     def show_robo_options(self):
         valid_for_show_robo = False
         while valid_for_show_robo == False:
             selection = int(input("Select which Robot is going to attack: (1, 2, or 3) : ")) - 1
-            print(selection)
+
             if selection != 0 and selection != 1 and selection != 2:
                 print("Invalid input please try again")
+                print()
             else:
                 selected_attacker = self.fleet.robots[selection]
                 valid_for_show_robo = True
                 return selected_attacker
 
+
     def dino_turn(self):
         if self.turn == "dino":
             self.show_dino_options()
 
+
     def robo_turn(self):
         if self.turn == "robot":
             self.show_robo_options()
+
 
     def display_winners(self):
         if self.winner == "robot":
@@ -74,10 +72,12 @@ class Battlefield:
     def check_for_death(self):
         if self.herd.dinosaurs[0].health <= 0:
             print(self.herd.dinosaurs[0].type + " Was defeated")
+            print()
             del self.herd.dinosaurs[0]
 
         elif self.fleet.robots[0].health <= 0: 
             print(self.fleet.robots[0].name + " Was defeated")
+            print()
             del self.fleet.robots[0]   
 
 

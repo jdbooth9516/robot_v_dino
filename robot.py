@@ -15,8 +15,11 @@ class Robot:
         total_attack = rand_num + self.weapon_att
         damage = target.health - total_attack
         target.health = damage
+        self.power_level -= 10
 
-        print(f"{self.name} attacks {target.type} with {self.weapon_name} dealing {total_attack} damage. {target.type} now has {target.health} health.")
+        print(f"{self.name} attacks {target.type} with {self.weapon_name} dealing {total_attack} damage. {target.type} now has {target.health} health. ")
+        print()
+        print(f"{self.name} lost 10 energy {self.power_level} left")
 
 
     def choose_weapon(self):
