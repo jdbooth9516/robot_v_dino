@@ -1,5 +1,6 @@
 from weapon import Weapon
 import random
+import time
 
 class Robot:
     def __init__(self, name):
@@ -21,17 +22,20 @@ class Robot:
             print()
             print()
             print(f"{self.name} attacks {target.type} with {self.weapon_name} dealing {total_attack} damage. {target.type} now has {target.health}  health. ")
+            time.sleep(1.5)
             print()
             print(f"{self.name} lost 10 energy {self.power_level} left")
             print()
             print()
             print()
+            time.sleep(1.5)
         else:
             print()
             print(f"{self.name} is out of power can not attack")
             print()
             print()
             print()
+            time.sleep(1.5)
 
 
     def choose_weapon(self):

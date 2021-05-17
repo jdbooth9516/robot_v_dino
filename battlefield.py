@@ -34,7 +34,7 @@ class Battlefield:
         print()
         time.sleep(2)
 
-        print("If you robots run out of health they die.")
+        print("If your robots run out of health they die.")
         print()
         time.sleep(2)
 
@@ -67,7 +67,7 @@ class Battlefield:
         self.fleet.create_fleet()
         self.herd.create_herd()
         print()
-        start = input("Your fleet is ready to deploy? (y/n): ")
+        start = input("Your fleet is ready to deploy? Are you ready to start the battle? (y/n): ")
         test_start = start.lower()
         if test_start == 'y':
             self.run = True
